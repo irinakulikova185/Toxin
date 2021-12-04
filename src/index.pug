@@ -1,0 +1,14 @@
+extends templates/base
+include pug/libs/_libs
+
+block variables
+  - let title = "Toxin hotel"
+  - let keywords = "toxin,hotel,booking"
+  - let descr = "booking rooms in toxin hotel "
+
+block content
+  .container
+    include ./components/header/header 
+        //- h1.container__title Hello 
+        //- +image('work1')
+        //- .container__block

@@ -1,0 +1,11 @@
+@use 'base';
+
+html {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Montserrat, Arial, sans-serif;
+  @include base.m-regular;
+  background-color: #FFFFFF;
+  min-height: 100vh;
+}

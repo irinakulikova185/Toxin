@@ -1,0 +1,39 @@
+extends ../../../templates/base
+
+block variables
+  - let title = "Colors&Types"
+  - let keywords = "UI Kit, colours, types"
+  - let descr = "Colors&Types page"
+  -
+    let colors = [
+      {name:"Dark Shade 100%", number: "#1F2041"},
+      {name:"Dark Shade 75%", number: "#1F2041"},
+      {name:"Dark Shade 50%", number: "#1F2041"},
+      {name:"Dark Shade 25%", number: "#1F2041"},
+      {name:"Dark Shade 5%", number: "#1F2041"},
+      {name:"Purple", number: "#BC9CFF"},
+      {name:"Green", number: "#6FCF97"},
+    ]
+  -
+    let fonts = [
+      {sample: "H1", descr: "This one is the sub-section or widget title"},
+      {sample: "H2", descr: "Next one is the item title inside widgets"},
+      {sample: "H3", descr: "This is a label or CTA text"},
+      {sample: "Body", descr: "This is the body text which is used for most of the design, like paragraphs, lists, etc."}
+    ]  
+
+block content
+  .wrapper 
+    .colors-block
+      each val in colors
+        .colors-block__item
+          div(class=`colors-block__sample colors-block__sample_${val.name.replace(/[^a-zA-Z0-9]+/g, '').toLowerCase()}`)
+          .colors-block__descr 
+            span.colors-block__name= val.name
+            span.colors-block__number= val.number
+    .fonts-block
+      each val in fonts 
+        .fonts-block__item
+          span(class=`fonts-block__sample fonts-block__sample_${val.sample.toLowerCase()}`)= val.sample 
+          span.fonts-block__descr= val.descr 
+               

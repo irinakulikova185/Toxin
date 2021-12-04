@@ -1,0 +1,93 @@
+@use '../../../styles/base';
+
+.wrapper {
+  display: flex;
+  width: 100%;
+  max-width: 1440px;
+  // justify-content: center;
+  column-gap: 415px;
+  // vertical-align: middle;
+  margin-top: 145px;
+  margin-bottom: 145px;
+  // width: 100%;
+  // max-width: 1920px;
+}
+.colors-block {
+    width: 100%;
+    max-width: 281.26px;
+    margin-left: 149.74px;
+    &__item {
+      display: flex;
+      margin-bottom: 20px;
+      column-gap: 40px;
+      // height: 70px;
+      &:last-child { 
+        margin-bottom: 0px;
+       }
+    }
+    &__sample {
+      width: 70px;
+      height: 70px;
+      border-radius: 6px;
+      &_darkshade100 {
+        background-color: base.$dark100;
+      }
+      &_darkshade75 {
+        background-color: base.$dark75;
+      }
+      &_darkshade50 {
+        background-color: base.$dark50;
+      }
+      &_darkshade25 {
+        background-color: base.$dark25;
+      }
+      &_darkshade5 {
+        background-color: base.$dark5;
+      }
+      &_purple {
+        background-color: base.$purple;
+      }
+      &_green {
+        background-color: base.$green;
+      }
+    
+    }
+    &__descr {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    &__name {
+      @include base.m-subtitle;
+    }
+    &__numder {
+      font-weight: 400;
+      font-size: 19px;
+    }
+  }
+
+.fonts {
+  &-block {
+    width: 100%;
+    max-width: 436px;
+    margin-right: 158px;
+    &__item {
+      display: flex;
+      column-gap: 30px;
+      margin-bottom: 51px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+      &:nth-child(3) {
+        margin-bottom: 50px;
+      }
+    }
+    &__sample {
+      flex-basis: 37px;
+      display: flex;
+      justify-content: flex-end;
+      color: base.$dark25;
+    }
+  }
+  
+}

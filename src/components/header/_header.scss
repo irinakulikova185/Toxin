@@ -1,0 +1,8 @@
+@use '../../styles/base';
+
+
+.header {
+    color: base.$dark50;
+    @include base.m-title;
+    
+}
