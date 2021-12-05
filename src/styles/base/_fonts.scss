@@ -11,3 +11,10 @@
   font-weight: 700;
   font-style:normal;
 }
+
+@font-face {
+  font-family: Quicksand;
+  src: url("../fonts/Quicksand-Regular.woff") format("woff"), url('../fonts/Quicksand-Regular.ttf') format('truetype'), url('../fonts/Quicksand-Regular.svg') format('svg');
+  font-weight: 400;
+  font-style:normal;
+}

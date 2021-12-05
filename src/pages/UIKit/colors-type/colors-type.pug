@@ -16,10 +16,10 @@ block variables
     ]
   -
     let fonts = [
-      {sample: "H1", descr: "This one is the sub-section or widget title"},
-      {sample: "H2", descr: "Next one is the item title inside widgets"},
-      {sample: "H3", descr: "This is a label or CTA text"},
-      {sample: "Body", descr: "This is the body text which is used for most of the design, like paragraphs, lists, etc."}
+      {sample: "H1", descr: "This one is the sub-section or widget title", sampleClass: "fs24", descrClass: "title"},
+      {sample: "H2", descr: "Next one is the item title inside widgets", sampleClass: "fs19", descrClass: "subtitle"},
+      {sample: "H3", descr: "This is a label or CTA text", sampleClass: "fs12", descrClass: "label"},
+      {sample: "Body", descr: "This is the body text which is used for most of the design, like paragraphs, lists, etc.", sampleClass: "fs14", descrClass: "regular"}
     ]  
 
 block content
@@ -34,6 +34,6 @@ block content
     .fonts-block
       each val in fonts 
         .fonts-block__item
-          span(class=`fonts-block__sample fonts-block__sample_${val.sample.toLowerCase()}`)= val.sample 
-          span.fonts-block__descr= val.descr 
+          span(class=`fonts-block__sample fonts-block__sample_${val.sampleClass}`)= val.sample 
+          span(class=`fonts-block__descr_${val.descrClass}`)= val.descr 
                

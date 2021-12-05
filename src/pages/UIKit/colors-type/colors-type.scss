@@ -2,10 +2,11 @@
 
 .wrapper {
   display: flex;
-  width: 100%;
-  max-width: 1440px;
+  // width: 100%;
+  // max-width: 1440px;
   // justify-content: center;
   column-gap: 415px;
+  // column-gap: 28.8%;
   // vertical-align: middle;
   margin-top: 145px;
   margin-bottom: 145px;
@@ -15,6 +16,8 @@
 .colors-block {
     width: 100%;
     max-width: 281.26px;
+    min-width: 281.26px;
+    // width: 19.5%;
     margin-left: 149.74px;
     &__item {
       display: flex;
@@ -60,9 +63,11 @@
     &__name {
       @include base.m-subtitle;
     }
-    &__numder {
+    &__number {
+      font-family: Montserrat, Arial, sans-serif;
       font-weight: 400;
       font-size: 19px;
+      padding-top: 3px;
     }
   }
 
@@ -70,6 +75,8 @@
   &-block {
     width: 100%;
     max-width: 436px;
+    min-width: 436px;
+    width: 30.2%;
     margin-right: 158px;
     &__item {
       display: flex;
@@ -83,10 +90,37 @@
       }
     }
     &__sample {
-      flex-basis: 37px;
+      width: 100%;
+      max-width: 37px;
       display: flex;
       justify-content: flex-end;
       color: base.$dark25;
+      &_fs24 {
+        font-size: 24px;
+      }
+      &_fs19 {
+        font-size: 19px;
+      }
+      &_fs12 {
+        font-size: 12px;
+      }
+      &_fs14 {
+        font-size: 14px;
+      }
+    }
+    &__descr {
+      &_title {
+        @include base.m-title;
+      }
+      &_subtitle {
+        @include base.m-subtitle;
+      }
+      &_label {
+        @include base.m-label;
+      }
+      &_regular {
+        @include base.m-regular;
+      }
     }
   }
   
