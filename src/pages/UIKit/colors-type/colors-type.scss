@@ -67,7 +67,8 @@
       font-family: Montserrat, Arial, sans-serif;
       font-weight: 400;
       font-size: 19px;
-      padding-top: 3px;
+      padding-top: 4px;
+      // line-height: 27.79px;
     }
   }
 
@@ -86,7 +87,7 @@
         margin-bottom: 0;
       }
       &:nth-child(3) {
-        margin-bottom: 50px;
+        margin-bottom: 49px;
       }
     }
     &__sample {
@@ -97,15 +98,18 @@
       color: base.$dark25;
       &_fs24 {
         font-size: 24px;
+        line-height: 29.26px;
       }
       &_fs19 {
         font-size: 19px;
       }
       &_fs12 {
         font-size: 12px;
+        line-height: 15.63px;
       }
       &_fs14 {
         font-size: 14px;
+        line-height: 23px;
       }
     }
     &__descr {
@@ -117,9 +121,13 @@
       }
       &_label {
         @include base.m-label;
+        line-height: 15.63px;
       }
       &_regular {
         @include base.m-regular;
+        line-height: 23px;
+        width: 100%;
+        max-width: 301px;
       }
     }
   }
