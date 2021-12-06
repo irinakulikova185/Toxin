@@ -1,1 +1,181 @@
-<!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="initial-scale=1.0, width=device-width"><meta name="keywords" content="toxin,hotel,booking"><meta name="description" content="booking rooms in toxin hotel "><title>Toxin hotel</title><script defer src="/vendors-node_modules_css-loader_dist_runtime_api_js-node_modules_css-loader_dist_runtime_getU-4f27dd.4c71ddd48f416ae6a750.js"></script><script defer src="/main.a4f701f023c39b796525.js"></script></head><body><div class="container"><div class="header">Header</div></div></body></html>
+<head><script defer src="/vendors-node_modules_css-loader_dist_runtime_api_js-node_modules_css-loader_dist_runtime_getU-4f27dd.4c71ddd48f416ae6a750.js"></script><script defer src="/main.b27c430f92c6ace9d2a7.js"></script></head>Html Webpack Plugin:
+<pre>
+  Error: Child compilation failed:
+  Module build failed (from ./node_modules/pug-loader/index.js):
+  Error: D:\Learning\Work\Toxin\src\components\text-field\text-field.pug:3:35
+      1| mixin text-field(type, placeholder)
+      2|   form.text-field
+    > 3|     input.text-field__input(type= #[type] placeholder= #[placeholder])
+  -----------------------------------------^
+  
+  Syntax Error: Unexpected character '#'
+      at makeError (D:\Learning\Work\Toxin\node_modules\pug-error\index.js:34:13)
+      at Lexer.error (D:\Learning\Work\Toxin\node_modules\pug-lexer\index.js:62:15)
+      at Lexer.assertExpression (D:\Learning\Work\Toxin\node_modules\pug-lexer\index.js:96:12)
+      at Lexer.attributeValue (D:\Learning\Work\Toxin\node_modules\pug-lexer\index.js:1428:10)
+      at Lexer.attribute (D:\Learning\Work\Toxin\node_modules\pug-lexer\index.js:1275:30)
+      at Lexer.attrs (D:\Learning\Work\Toxin\node_modules\pug-lexer\index.js:1454:20)
+      at Lexer.callLexerFunction (D:\Learning\Work\Toxin\node_modules\pug-lexer\index.js:1647:23)
+      at Lexer.advance (D:\Learning\Work\Toxin\node_modules\pug-lexer\index.js:1686:12)
+      at Lexer.callLexerFunction (D:\Learning\Work\Toxin\node_modules\pug-lexer\index.js:1647:23)
+      at Lexer.getTokens (D:\Learning\Work\Toxin\node_modules\pug-lexer\index.js:1706:12)
+  ModuleBuildError: Module build failed (from ./node_modules/pug-loader/index.js):
+  Error: D:\Learning\Work\Toxin\src\components\text-field\text-field.pug:3:35
+      1| mixin text-field(type, placeholder)
+      2|   form.text-field
+    > 3|     input.text-field__input(type= #[type] placeholder= #[placeholder])
+  -----------------------------------------^
+  
+  Syntax Error: Unexpected character '#'
+      at makeError (D:\Learning\Work\Toxin\node_modules\pug-error\index.js:34:13)
+      at Lexer.error (D:\Learning\Work\Toxin\node_modules\pug-lexer\index.js:62:15)
+      at Lexer.assertExpression (D:\Learning\Work\Toxin\node_modules\pug-lexer\index.js:96:12)
+      at Lexer.attributeValue (D:\Learning\Work\Toxin\node_modules\pug-lexer\index.js:1428:10)
+      at Lexer.attribute (D:\Learning\Work\Toxin\node_modules\pug-lexer\index.js:1275:30)
+      at Lexer.attrs (D:\Learning\Work\Toxin\node_modules\pug-lexer\index.js:1454:20)
+      at Lexer.callLexerFunction (D:\Learning\Work\Toxin\node_modules\pug-lexer\index.js:1647:23)
+      at Lexer.advance (D:\Learning\Work\Toxin\node_modules\pug-lexer\index.js:1686:12)
+      at Lexer.callLexerFunction (D:\Learning\Work\Toxin\node_modules\pug-lexer\index.js:1647:23)
+      at Lexer.getTokens (D:\Learning\Work\Toxin\node_modules\pug-lexer\index.js:1706:12)
+      at processResult (D:\Learning\Work\Toxin\node_modules\webpack\lib\NormalModule.js:751:19)
+      at D:\Learning\Work\Toxin\node_modules\webpack\lib\NormalModule.js:853:5
+      at D:\Learning\Work\Toxin\node_modules\loader-runner\lib\LoaderRunner.js:399:11
+      at D:\Learning\Work\Toxin\node_modules\loader-runner\lib\LoaderRunner.js:251:18
+      at Object.context.callback (D:\Learning\Work\Toxin\node_modules\loader-runner\lib\LoaderRunner.js:124:13)
+      at run (D:\Learning\Work\Toxin\node_modules\pug-loader\index.js:156:18)
+      at D:\Learning\Work\Toxin\node_modules\pug-loader\index.js:61:7
+      at D:\Learning\Work\Toxin\node_modules\webpack\lib\dependencies\LoaderPlugin.js:151:16
+      at D:\Learning\Work\Toxin\node_modules\webpack\lib\Compilation.js:1930:5
+      at D:\Learning\Work\Toxin\node_modules\webpack\lib\util\AsyncQueue.js:352:5
+  
+  - index.js:34 makeError
+    [Toxin]/[pug-error]/index.js:34:13
+  
+  - index.js:62 Lexer.error
+    [Toxin]/[pug-lexer]/index.js:62:15
+  
+  - index.js:96 Lexer.assertExpression
+    [Toxin]/[pug-lexer]/index.js:96:12
+  
+  - index.js:1428 Lexer.attributeValue
+    [Toxin]/[pug-lexer]/index.js:1428:10
+  
+  - index.js:1275 Lexer.attribute
+    [Toxin]/[pug-lexer]/index.js:1275:30
+  
+  - index.js:1454 Lexer.attrs
+    [Toxin]/[pug-lexer]/index.js:1454:20
+  
+  - index.js:1647 Lexer.callLexerFunction
+    [Toxin]/[pug-lexer]/index.js:1647:23
+  
+  - index.js:1686 Lexer.advance
+    [Toxin]/[pug-lexer]/index.js:1686:12
+  
+  - index.js:1647 Lexer.callLexerFunction
+    [Toxin]/[pug-lexer]/index.js:1647:23
+  
+  - index.js:1706 Lexer.getTokens
+    [Toxin]/[pug-lexer]/index.js:1706:12
+  
+  - ModuleBuildError: Module build failed (from ./node_modules/pug-loader/index.js):
+  
+  - Error: D:\Learning\Work\Toxin\src\components\text-field\text-field.pug:3:35
+  
+  - 1| mixin text-field(type, placeholder)
+  
+  - 2|   form.text-field
+  
+  - > 3|     input.text-field__input(type= #[type] placeholder= #[placeholder])
+  
+  - -----------------------------------------^
+  
+  - Syntax Error: Unexpected character '#'
+  
+  - index.js:34 makeError
+    [Toxin]/[pug-error]/index.js:34:13
+  
+  - index.js:62 Lexer.error
+    [Toxin]/[pug-lexer]/index.js:62:15
+  
+  - index.js:96 Lexer.assertExpression
+    [Toxin]/[pug-lexer]/index.js:96:12
+  
+  - index.js:1428 Lexer.attributeValue
+    [Toxin]/[pug-lexer]/index.js:1428:10
+  
+  - index.js:1275 Lexer.attribute
+    [Toxin]/[pug-lexer]/index.js:1275:30
+  
+  - index.js:1454 Lexer.attrs
+    [Toxin]/[pug-lexer]/index.js:1454:20
+  
+  - index.js:1647 Lexer.callLexerFunction
+    [Toxin]/[pug-lexer]/index.js:1647:23
+  
+  - index.js:1686 Lexer.advance
+    [Toxin]/[pug-lexer]/index.js:1686:12
+  
+  - index.js:1647 Lexer.callLexerFunction
+    [Toxin]/[pug-lexer]/index.js:1647:23
+  
+  - index.js:1706 Lexer.getTokens
+    [Toxin]/[pug-lexer]/index.js:1706:12
+  
+  - NormalModule.js:751 processResult
+    [Toxin]/[webpack]/lib/NormalModule.js:751:19
+  
+  - NormalModule.js:853 
+    [Toxin]/[webpack]/lib/NormalModule.js:853:5
+  
+  - LoaderRunner.js:399 
+    [Toxin]/[loader-runner]/lib/LoaderRunner.js:399:11
+  
+  - LoaderRunner.js:251 
+    [Toxin]/[loader-runner]/lib/LoaderRunner.js:251:18
+  
+  - LoaderRunner.js:124 Object.context.callback
+    [Toxin]/[loader-runner]/lib/LoaderRunner.js:124:13
+  
+  - index.js:156 run
+    [Toxin]/[pug-loader]/index.js:156:18
+  
+  - index.js:61 
+    [Toxin]/[pug-loader]/index.js:61:7
+  
+  - LoaderPlugin.js:151 
+    [Toxin]/[webpack]/lib/dependencies/LoaderPlugin.js:151:16
+  
+  - Compilation.js:1930 
+    [Toxin]/[webpack]/lib/Compilation.js:1930:5
+  
+  - AsyncQueue.js:352 
+    [Toxin]/[webpack]/lib/util/AsyncQueue.js:352:5
+  
+  - child-compiler.js:169 
+    [Toxin]/[html-webpack-plugin]/lib/child-compiler.js:169:18
+  
+  - Compiler.js:559 
+    [Toxin]/[webpack]/lib/Compiler.js:559:11
+  
+  - Compiler.js:1129 
+    [Toxin]/[webpack]/lib/Compiler.js:1129:17
+  
+  
+  - Hook.js:18 Hook.CALL_ASYNC_DELEGATE [as _callAsync]
+    [Toxin]/[tapable]/lib/Hook.js:18:14
+  
+  - Compiler.js:1125 
+    [Toxin]/[webpack]/lib/Compiler.js:1125:33
+  
+  - Compilation.js:2782 finalCallback
+    [Toxin]/[webpack]/lib/Compilation.js:2782:11
+  
+  - Compilation.js:3087 
+    [Toxin]/[webpack]/lib/Compilation.js:3087:11
+  
+  
+  - Hook.js:18 Hook.CALL_ASYNC_DELEGATE [as _callAsync]
+    [Toxin]/[tapable]/lib/Hook.js:18:14
+  
+</pre>

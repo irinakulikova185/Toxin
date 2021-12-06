@@ -1,4 +1,5 @@
-extends ../../../templates/base
+extends ../../../pug/templates/base
+include ../../../pug/libs/libs
 
 block variables
   - let title = "Colors&Types"
@@ -23,6 +24,9 @@ block variables
     ]  
 
 block content
+  //- img(src=require(`../../../images/icons/logo.png`) alt=name)
+  //- +image('logo','png')
+  include ../../../components/logo/logo
   .wrapper 
     .colors-block
       each val in colors

@@ -1,5 +1,5 @@
-extends templates/base
-include pug/libs/_libs
+extends pug/templates/base
+include pug/libs/libs
 
 block variables
   - let title = "Toxin hotel"
@@ -9,6 +9,7 @@ block variables
 block content
   .container
     include ./components/header/header 
+    //- +image('logo', 'png')
         //- h1.container__title Hello 
         //- +image('work1')
         //- .container__block

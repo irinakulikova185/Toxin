@@ -1,26 +1,33 @@
+@use './variables';
+
 @mixin title {
   font-weight: 700;
   font-size: 24px;
-  line-height: 29.26px;
+  // line-height: 29.26px;
 }
 
 @mixin subtitle {
   font-weight: 700;
   font-size: 19px;
-  line-height: 23.16px;
+  // line-height: 23.16px;
 }
 
 @mixin label {
   font-weight: 700;
   font-size: 12px;
-  line-height: 15.63px; // PP по C&t
-  line-height: 14.63px; //по макету решить какой оставить исправить в color type
+  // line-height: 15.63px; // PP по C&t
+  // line-height: 14.63px; //по макету решить какой оставить исправить в color type
   text-transform: uppercase;
 }
 
 @mixin regular{
   font-weight: 400;
   font-size: 14px;
-  line-height: 24px; //по макету
+  // line-height: 24px; //по макету
   // line-height: 23px; //PP по C&t
+}
+
+@mixin border {
+  border: 1px solid variables.$dark25;
+  border-radius: 4px; 
 }

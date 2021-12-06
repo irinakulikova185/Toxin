@@ -22,6 +22,10 @@ const plugins = () => {
             filename: 'colors-type.html',
             template: "./src/pages/UIKit/colors-type/colors-type.pug"
         }),
+        new HtmlWebpackPlugin({
+            filename: 'form-elements.html',
+            template: "./src/pages/UIKit/form-elements/form-elements.pug"
+        }),
     ];
   
     if (mode === 'production') {
@@ -81,7 +85,7 @@ module.exports = {
         // {
             // directory: path.join(__dirname, './dist/colors-types.html'),
         //   },
-        open: 'colors-type.html',
+        open: 'form-elements.html',
         compress: true,
         hot: true,
         port: 3000,
