@@ -1,18 +1,18 @@
-// @use '../../styles/base';
-@use '../../styles/base/mixins';
-@use '../../styles/base/fonts';
+@use '../../styles/base';
+// @use '../../styles/base/mixins';
+// @use '../../styles/base/fonts';
 
 .text-field {
   width: 100%;
   max-width: 320px;
   height: 44px;
   &__input {
-    // @include base.m-border;
+    @include base.m-border;
     width: 100%;
     line-height: 18px;
     padding: 13px 0 13px 15px;
-    // &::placeholder {
-      // color: base.$dark25;
-    // }
+    &::placeholder {
+      color: base.$dark25;
+    }
   }
 }
