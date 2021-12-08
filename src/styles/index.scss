@@ -1,10 +1,27 @@
-
+@use 'base';
+* {
+  box-sizing: border-box;
+  font-family: Montserrat, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  @include base.m-regular;
+}
+body, html {
+  // box-sizing: border-box;
+  // font-family: Montserrat, Arial, sans-serif;
+  // margin: 0;
+  // padding: 0;
+  background-color: #FFFFFF;
+  color: base.$dark50;
+  height: 100%;
+}
 // @use './base/fonts';
 // @use './base/variables';
 // @use './base/mixins';
-@use 'style.scss';
-@use '../pages/UIKit/colors-type/colors-type.scss';
-@use '../components/header/_header.scss';
-@use '../components/logo/_logo.scss';
-@use '../components/text-field/_text-field.scss';
-
+// @use 'style.scss';
+// @use '../pages/UIKit/colors-type/_colors-type.scss';
+// @use '../pages/UIKit/form-elements/_form-elements.scss';
+// @use '../components/header/_header.scss';
+// @use '../components/logo/_logo.scss';
+// @use '../components/text-field/_text-field.scss';
+// @use '../components/heading/_heading.scss';

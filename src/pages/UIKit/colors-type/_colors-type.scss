@@ -1,29 +1,20 @@
-@use '../../../styles/base';
+// @use '../../../styles/base';
 
-.wrapper {
+.colors-type__wrapper {
   display: flex;
-  // width: 100%;
-  // max-width: 1440px;
-  // justify-content: center;
   column-gap: 415px;
-  // column-gap: 28.8%;
-  // vertical-align: middle;
   margin-top: 97px;
   margin-bottom: 145px;
-  // width: 100%;
-  // max-width: 1920px;
 }
 .colors-block {
     width: 100%;
     max-width: 281.26px;
     min-width: 281.26px;
-    // width: 19.5%;
     margin-left: 149.74px;
     &__item {
       display: flex;
       margin-bottom: 20px;
       column-gap: 40px;
-      // height: 70px;
       &:last-child { 
         margin-bottom: 0px;
        }
@@ -32,27 +23,27 @@
       width: 70px;
       height: 70px;
       border-radius: 6px;
-      &_darkshade100 {
-        background-color: base.$dark100;
-      }
-      &_darkshade75 {
-        background-color: base.$dark75;
-      }
-      &_darkshade50 {
-        background-color: base.$dark50;
-      }
-      &_darkshade25 {
-        background-color: base.$dark25;
-      }
-      &_darkshade5 {
-        background-color: base.$dark5;
-      }
-      &_purple {
-        background-color: base.$purple;
-      }
-      &_green {
-        background-color: base.$green;
-      }
+      // &_darkshade100 {
+      //   background-color: base.$dark100;
+      // }
+      // &_darkshade75 {
+      //   background-color: base.$dark75;
+      // }
+      // &_darkshade50 {
+      //   background-color: base.$dark50;
+      // }
+      // &_darkshade25 {
+      //   background-color: base.$dark25;
+      // }
+      // &_darkshade5 {
+      //   background-color: base.$dark5;
+      // }
+      // &_purple {
+      //   background-color: base.$purple;
+      // }
+      // &_green {
+      //   background-color: base.$green;
+      // }
     
     }
     &__descr {
@@ -60,15 +51,13 @@
       flex-direction: column;
       justify-content: center;
     }
-    &__name {
-      @include base.m-subtitle;
-    }
+    // &__name {
+    //   @include base.m-subtitle;
+    // }
     &__number {
-      // font-family: Montserrat, Arial, sans-serif;
       font-weight: 400;
       font-size: 19px;
       padding-top: 4px;
-      // line-height: 27.79px;
     }
   }
 
@@ -95,7 +84,7 @@
       max-width: 37px;
       display: flex;
       justify-content: flex-end;
-      color: base.$dark25;
+      // color: base.$dark25;
       &_fs24 {
         font-size: 24px;
         line-height: 29.26px;
@@ -112,26 +101,26 @@
         line-height: 23px;
       }
     }
-    &__descr {
-      &_title {
-        @include base.m-title;
-        line-height: 29.26px;
-      }
-      &_subtitle {
-        @include base.m-subtitle;
-        line-height: 23.16px;
-      }
-      &_label {
-        @include base.m-label;
-        line-height: 15.63px;
-      }
-      &_regular {
-        @include base.m-regular;
-        line-height: 23px;
-        width: 100%;
-        max-width: 301px;
-      }
-    }
+    // &__descr {
+    //   &_title {
+    //     @include base.m-title;
+    //     line-height: 29.26px;
+    //   }
+    //   &_subtitle {
+    //     @include base.m-subtitle;
+    //     line-height: 23.16px;
+    //   }
+    //   &_label {
+    //     @include base.m-label;
+    //     line-height: 15.63px;
+    //   }
+    //   &_regular {
+    //     @include base.m-regular;
+    //     line-height: 23px;
+    //     width: 100%;
+    //     max-width: 301px;
+    //   }
+    // }
   }
   
 }

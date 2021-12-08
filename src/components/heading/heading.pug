@@ -1,0 +1,6 @@
+mixin heading(params= {title: "", prop: ""})
+  .heading 
+    span.heading__title= params.title.toUpperCase()
+    if (params.prop)
+      span.heading__prop= params.prop.toUpperCase()
+    

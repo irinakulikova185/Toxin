@@ -3,29 +3,48 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 const { extendDefaultPlugins } = require("svgo");
+const fs = require('fs');
 
 
 const path = require('path');
 
-let mode = process.env.NODE_ENV === 'development' ? 'development' : 'production'
+let mode = process.env.NODE_ENV === 'development' ? 'development' : 'production';
+const PAGES_DIR = path.join(__dirname, 'src/pages/UIKIT');
+const PAGES = fs.readdirSync(PAGES_DIR)
+console.log(PAGES)
+const PATHS = {
+    src: path.join(__dirname, './src'),
+    dist: path.join(__dirname, './dist'),
+  }
+const entryPoints = PAGES.map(page => ({ [page]: `${PAGES_DIR}/${page}/index.js`, }));
+const entryPointsCorrect = Object.assign({}, ...entryPoints);
+console.log(entryPointsCorrect)  
 
 const plugins = () => {
     const basePlugins = [
         new MiniCssExtractPlugin({
             filename: '[name].[contenthash].css'
         }),
-        new HtmlWebpackPlugin({
-            filename: 'index.html',
-            template: "./src/index.pug"
-        }),
-        new HtmlWebpackPlugin({
-            filename: 'colors-type.html',
-            template: "./src/pages/UIKit/colors-type/colors-type.pug"
-        }),
-        new HtmlWebpackPlugin({
-            filename: 'form-elements.html',
-            template: "./src/pages/UIKit/form-elements/form-elements.pug"
-        }),
+        ...PAGES.map(
+            (page) =>
+              new HtmlWebpackPlugin({
+                filename: `${page}.html`,
+                template: `${PAGES_DIR}/${page}/${page}.pug`,
+                chunks: [page],
+              })
+          ),
+        // new HtmlWebpackPlugin({
+        //     filename: 'index.html',
+        //     template: "./src/index.pug"
+        // }),
+        // new HtmlWebpackPlugin({
+        //     filename: 'colors-type.html',
+        //     template: "./src/pages/UIKit/colors-type/colors-type.pug"
+        // }),
+        // new HtmlWebpackPlugin({
+        //     filename: 'form-elements.html',
+        //     template: "./src/pages/UIKit/form-elements/form-elements.pug"
+        // }),
     ];
   
     if (mode === 'production') {
@@ -66,6 +85,7 @@ const plugins = () => {
   
 module.exports = {
     mode: mode,
+    entry: entryPointsCorrect,
     output: {
         filename: '[name].[contenthash].js',
         path: path.resolve(__dirname, 'dist'),
@@ -73,6 +93,14 @@ module.exports = {
         assetModuleFilename: "assets/[hash][ext][query]",
         clean: true,
     },
+    resolve: {
+        alias: {
+        //   '@variables': path.resolve(__dirname, `${PATHS.src}/styles/variables.scss`),
+        //   '@mixins': path.resolve(__dirname, `${PATHS.src}/styles/mixins.scss`),
+        //   'src': path.resolve(__dirname, `${PATHS.src}`),
+          Fonts: path.resolve(__dirname, `${PATHS.src}/fonts/`),
+        },
+      },
     devtool: 'source-map',
     optimization: {
         splitChunks: {
@@ -82,9 +110,6 @@ module.exports = {
     devServer: {
         historyApiFallback: true,
         static: './dist',
-        // {
-            // directory: path.join(__dirname, './dist/colors-types.html'),
-        //   },
         open: 'form-elements.html',
         compress: true,
         hot: true,
