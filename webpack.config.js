@@ -30,7 +30,7 @@ const plugins = () => {
               new HtmlWebpackPlugin({
                 filename: `${page}.html`,
                 template: `${PAGES_DIR}/${page}/${page}.pug`,
-                chunks: [page],
+                // chunks: [page],
               })
           ),
         // new HtmlWebpackPlugin({
@@ -88,7 +88,7 @@ module.exports = {
     entry: entryPointsCorrect,
     output: {
         filename: '[name].[contenthash].js',
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, 'dist/'),
         publicPath: "/",
         assetModuleFilename: "assets/[hash][ext][query]",
         clean: true,

@@ -1,10 +1,11 @@
-@use 'base';
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
 * {
   box-sizing: border-box;
   font-family: Montserrat, Arial, sans-serif;
   margin: 0;
   padding: 0;
-  @include base.m-regular;
+  @include m.regular;
 }
 body, html {
   // box-sizing: border-box;
@@ -12,7 +13,7 @@ body, html {
   // margin: 0;
   // padding: 0;
   background-color: #FFFFFF;
-  color: base.$dark50;
+  color: v.$dark50;
   height: 100%;
 }
 // @use './base/fonts';

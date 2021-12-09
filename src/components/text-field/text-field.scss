@@ -1,4 +1,6 @@
-@use '../../styles/base';
+// @use '../../styles/base';
+@use '../../styles/base/mixins' as m;
+@use '../../styles/base/variables' as v;
 // @use '../../styles/base/mixins';
 // @use '../../styles/base/fonts';
 
@@ -7,12 +9,12 @@
   max-width: 320px;
   height: 44px;
   &__input {
-    @include base.m-border;
+    @include m.border;
     width: 100%;
     line-height: 18px;
     padding: 13px 0 13px 15px;
     &::placeholder {
-      color: base.$dark25;
+      color: v.$dark25;
     }
   }
 }
