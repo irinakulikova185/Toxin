@@ -17,7 +17,7 @@ const paths = {
     dist: path.join(__dirname, './dist'),
   }
 const entryPoints = pages.map(page => ({ [page]: `${pages_dir}/${page}/index.js`, }));
-const entryPointsCorrect = Object.assign({}, {'index': `${paths.src}/index.js`}, ...entryPoints);
+const entryPointsCorrect = Object.assign({}, ...entryPoints);
 console.log(entryPointsCorrect)  
 
 const plugins = () => {
@@ -30,7 +30,7 @@ const plugins = () => {
               new HtmlWebpackPlugin({
                 filename: `${page}.html`,
                 template: `${pages_dir}/${page}/${page}.pug`,
-                chunks: [page, 'index'],
+                chunks: [page],
               })
           ),
     ];
@@ -162,3 +162,4 @@ module.exports = {
     plugins: plugins()
     
 }
+// , {'index': `${paths.src}/index.js`}
