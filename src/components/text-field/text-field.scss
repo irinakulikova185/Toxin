@@ -16,5 +16,12 @@
     &::placeholder {
       color: v.$dark25;
     }
+    &_focused {
+      color: v.$dark75;
+      border-color: v.$dark50;
+      &::placeholder {
+        color: v.$dark50;
+      }
+    }
   }
 }

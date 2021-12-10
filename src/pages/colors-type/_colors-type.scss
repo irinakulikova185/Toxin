@@ -1,4 +1,5 @@
-// @use '../../../styles/base';
+@use '../../styles/base/mixins' as m;
+@use '../../styles/base/variables' as v;
 
 .colors-type__wrapper {
   display: flex;
@@ -23,37 +24,36 @@
       width: 70px;
       height: 70px;
       border-radius: 6px;
-      // &_darkshade100 {
-      //   background-color: base.$dark100;
-      // }
-      // &_darkshade75 {
-      //   background-color: base.$dark75;
-      // }
-      // &_darkshade50 {
-      //   background-color: base.$dark50;
-      // }
-      // &_darkshade25 {
-      //   background-color: base.$dark25;
-      // }
-      // &_darkshade5 {
-      //   background-color: base.$dark5;
-      // }
-      // &_purple {
-      //   background-color: base.$purple;
-      // }
-      // &_green {
-      //   background-color: base.$green;
-      // }
-    
+      &_darkshade100 {
+        background-color: v.$dark100;
+      }
+      &_darkshade75 {
+        background-color: v.$dark75;
+      }
+      &_darkshade50 {
+        background-color: v.$dark50;
+      }
+      &_darkshade25 {
+        background-color: v.$dark25;
+      }
+      &_darkshade5 {
+        background-color: v.$dark5;
+      }
+      &_purple {
+        background-color: v.$purple;
+      }
+      &_green {
+        background-color: v.$green;
+      }
     }
     &__descr {
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
-    // &__name {
-    //   @include base.m-subtitle;
-    // }
+    &__name {
+      @include m.subtitle;
+    }
     &__number {
       font-weight: 400;
       font-size: 19px;
@@ -84,7 +84,7 @@
       max-width: 37px;
       display: flex;
       justify-content: flex-end;
-      // color: base.$dark25;
+      color: v.$dark25;
       &_fs24 {
         font-size: 24px;
         line-height: 29.26px;
@@ -101,26 +101,29 @@
         line-height: 23px;
       }
     }
-    // &__descr {
-    //   &_title {
-    //     @include base.m-title;
-    //     line-height: 29.26px;
-    //   }
-    //   &_subtitle {
-    //     @include base.m-subtitle;
-    //     line-height: 23.16px;
-    //   }
-    //   &_label {
-    //     @include base.m-label;
-    //     line-height: 15.63px;
-    //   }
-    //   &_regular {
-    //     @include base.m-regular;
-    //     line-height: 23px;
-    //     width: 100%;
-    //     max-width: 301px;
-    //   }
-    // }
+    &__descr {
+      &_title {
+        @include m.title;
+        line-height: 29.26px;
+      }
+      &_subtitle {
+        @include m.subtitle;
+        line-height: 23.16px;
+      }
+      &_label {
+        @include m.label;
+        line-height: 15.63px;
+      }
+      &_regular {
+        @include m.regular;
+        line-height: 23px;
+        width: 100%;
+        max-width: 301px;
+      }
+    }
   }
   
+}
+.foot {
+  height: 145px;
 }

@@ -1,5 +1,5 @@
-extends ../../../pug/templates/base
-include ../../../pug/libs/libs
+extends ../../pug/templates/base
+include ../../pug/libs/libs
 
 block variables
   - let title = "Colors&Types"
@@ -12,8 +12,8 @@ block variables
       {name:"Dark Shade 50%", number: "#1F2041"},
       {name:"Dark Shade 25%", number: "#1F2041"},
       {name:"Dark Shade 5%", number: "#1F2041"},
-      {name:"Purple", number: "#BC9CFF"},
-      {name:"Green", number: "#6FCF97"},
+      //- {name:"Purple", number: "#BC9CFF"},
+      //- {name:"Green", number: "#6FCF97"},
     ]
   -
     let fonts = [
@@ -24,7 +24,7 @@ block variables
     ]  
 
 block content
-  include ../../../components/logo/logo
+  include ../../components/logo/logo
   .colors-type__wrapper 
     .colors-block
       each val in colors
@@ -38,4 +38,4 @@ block content
         .fonts-block__item
           span(class=`fonts-block__sample fonts-block__sample_${val.sampleClass}`)= val.sample 
           span(class=`fonts-block__descr_${val.descrClass}`)= val.descr
-               
+  //- .foot             
