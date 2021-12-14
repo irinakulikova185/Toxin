@@ -35,3 +35,55 @@
   border: 1px solid v.$dark25;
   border-radius: 4px; 
 }
+
+// @mixin circle($width, $color) {
+//   width: $width;
+//   height: $width;
+//   border: 1px solid $color;
+//   // background: $color;
+//   border-radius: $width/2;
+// }
+@mixin circle-with-minus($width) {
+  width: $width;
+  height: $width;
+  border: 1px solid v.$dark25;
+  border-radius: $width/2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  &::after {
+    content: "";
+    display: inline-block;
+    width: 7px;
+    height: 2px;
+    background-color: v.$dark25;
+  }
+}
+
+@mixin circle-with-plus($width) {
+  width: $width;
+  height: $width;
+  border: 1px solid v.$dark25;
+  border-radius: $width/2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  &::after {
+    content: "";
+    display: inline-block;
+    width: 7px;
+    height: 2px;
+    background-color: v.$dark25;
+    transform: translateX(-40%);
+  }
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 7px;
+    height: 2px;
+    background-color: v.$dark25;
+    transform: translateX(60%) rotate(90deg)
+  }
+}

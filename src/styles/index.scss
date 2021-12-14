@@ -1,11 +1,12 @@
 @use 'base/mixins' as m;
 @use 'base/variables' as v;
 * {
+  @include m.regular;
   box-sizing: border-box;
   font-family: Montserrat, Arial, sans-serif;
   margin: 0;
   padding: 0;
-  @include m.regular;
+  
 }
 body, html {
   // box-sizing: border-box;

@@ -1,0 +1,87 @@
+@use '../../styles/base/mixins' as m;
+@use '../../styles/base/variables' as v;
+
+.dropdown {
+  position: relative;
+  width: 100%;
+  z-index: 2;
+  &__button {
+    // @include m.border;
+    @include m.regular;
+    position: relative;
+    width: 100%;
+    height: 44px;
+    background-color: #fff;
+    border-radius: 4px 4px 0 0;
+    border: 1px solid v.$dark25;
+    padding-left: 13px;
+    padding-right: 91px;
+    text-align: left;
+    cursor: pointer;
+    // line-height: 24px;
+    &::after {
+      content: '';
+      border: solid v.$dark50;
+      border-width: 0 2px 2px 0;
+      display: inline-block;
+      padding: 3px;
+      transform: translate(2100%, -30%)  rotate(45deg);
+      pointer-events: none;
+    }
+  }
+  &__list {
+    display: none;
+    position: absolute;
+    width: 100%;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-radius: 0 0 4px 4px;
+    border: 1px solid v.$dark25;
+    border-top: none;
+    box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+    &_visible {
+      display: block;
+    }
+  }
+  &__item {
+    height: 37px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &_controlling {
+      display: flex;
+      justify-content: space-between;
+      align-items:center;
+      padding-right: 6px;
+      padding-left: 15px;
+      height: 46px;
+    }
+  }
+  &__prop {
+    @include m.label;
+    padding-left: 15px;
+    // padding-right: 123px;
+  }
+  &__controls {
+    padding-right: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 98px;
+    // min-width: 92px;
+  }
+  &__amount {
+    @include m.label;
+  }
+  &__decrement-button {
+    @include m.circle-with-minus(30px)
+  }
+  &__increment-button {
+    @include m.circle-with-plus(30px)
+  }
+  &__clear, &__apply {
+    @include m.label;
+    color: v.$purple;
+  }
+}

@@ -1,7 +1,8 @@
-mixin text-field(params = {type: "", name: "", placeholder: ""})
+mixin text-field(params = {type: "", name: "", placeholder: "", focused: false, masked: false})
   -
     let inputClassName = "text-field__input"
     inputClassName += params.focused ? " text-field__input_focused" : ""
+    inputClassName += params.masked ? " text-field__input_masked" : ""
   form.text-field
     input(class=inputClassName, type=params.type, name=params.name, placeholder=params.placeholder)
     

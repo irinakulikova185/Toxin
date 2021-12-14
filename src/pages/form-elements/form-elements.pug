@@ -1,6 +1,7 @@
 extends ../../pug/templates/base
 include ../../components/text-field/text-field
 include ../../components/heading/heading
+include ../../components/dropdown/dropdown
 
 block variables
   - let title = "Form Elements"
@@ -9,9 +10,19 @@ block variables
 
 block content
   .form-elements__wrapper
-    .text-field__wrapper 
+    .element__wrapper 
       +heading({title: "text field", prop: "default"})
-      +text-field({type: "text",name: "email", placeholder: "Email"})
-    .text-field__wrapper 
+      +text-field({type: "email",name: "email", placeholder: "Email"})
+    .element__wrapper 
       +heading({title: "text field", prop: "hover / focus"})
-      +text-field({type: "text",name: "email", placeholder: "This is pretty awesome", focused: "true"})  
+      +text-field({type: "text",name: "email", placeholder: "This is pretty awesome", focused: "true"})
+    .element__wrapper 
+      +heading({title: "masked text field"})
+      +text-field({type: "text",name: "data", placeholder: "ДД.ММ.ГГГГ", masked: true})    
+    .element__wrapper 
+      +heading({title: "dropdown"})
+      +dropdown({initial_value: "Сколько гостей", items: ["взрослые", "дети", "младенцы"], visible: true})
+  
+    
+    
+    

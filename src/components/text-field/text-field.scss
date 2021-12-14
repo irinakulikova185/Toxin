@@ -7,16 +7,18 @@
 .text-field {
   width: 100%;
   max-width: 320px;
-  height: 44px;
   &__input {
     @include m.border;
     width: 100%;
+    height: 44px;
     line-height: 18px;
-    padding: 13px 0 13px 15px;
+    padding: 13px 91px 13px 15px;
+    text-align: left;
+    cursor: pointer;
     &::placeholder {
       color: v.$dark25;
     }
-    &_focused {
+    &_focused, &:hover, &:focus {
       color: v.$dark75;
       border-color: v.$dark50;
       &::placeholder {
