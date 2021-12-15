@@ -83,5 +83,12 @@
   &__clear, &__apply {
     @include m.label;
     color: v.$purple;
+    cursor: pointer;
+  }
+  &__clear {
+    visibility: hidden;
+    &_visible {
+      visibility: visible;
+    }
   }
 }

@@ -1,7 +1,9 @@
-mixin dropdown(params= {initial_value: "", items: [], visible: false})
+mixin dropdown(params= {initial_value: "", items: [], visible: false, clearBtn: false})
   -
     let listClassName = "dropdown__list"
     listClassName += params.visible ? " dropdown__list_visible" : ""
+    let clearBtnClassName = "dropdown__clear"
+    clearBtnClassName +=params.clearBtn ? " dropdown__clear_visible" : ""
   .dropdown
     button.dropdown__button= params.initial_value
     ul(class = listClassName)
@@ -13,7 +15,7 @@ mixin dropdown(params= {initial_value: "", items: [], visible: false})
             .dropdown__amount 0
             .dropdown__increment-button
       li.dropdown__item_controlling
-        span.dropdown__clear очистить
+        span(class = clearBtnClassName) очистить
         span.dropdown__apply применить       
       
 
