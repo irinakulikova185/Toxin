@@ -11,9 +11,9 @@ mixin dropdown(params= {initial_value: "", items: [], visible: false, clearBtn: 
         li.dropdown__item
           span.dropdown__prop= item
           .dropdown__controls
-            .dropdown__decrement-button 
+            button.dropdown__decrement-button 
             .dropdown__amount 0
-            .dropdown__increment-button
+            button.dropdown__increment-button
       li.dropdown__item_controlling
         span(class = clearBtnClassName) очистить
         span.dropdown__apply применить       

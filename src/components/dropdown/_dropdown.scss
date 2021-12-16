@@ -4,7 +4,7 @@
 .dropdown {
   position: relative;
   width: 100%;
-  z-index: 2;
+  // z-index: 2;
   &__button {
     // @include m.border;
     @include m.regular;
@@ -25,11 +25,17 @@
       border-width: 0 2px 2px 0;
       display: inline-block;
       padding: 3px;
-      transform: translate(2100%, -30%)  rotate(45deg);
+      // transform: translate(2100%, -30%)  rotate(45deg);
+      transform: rotate(45deg);
+      position: absolute;
+      right: 5%;
+      // bottom: 0.5%;
+      bottom: 19px;
       pointer-events: none;
     }
   }
   &__list {
+    background-color: #fff;
     display: none;
     position: absolute;
     width: 100%;
@@ -75,10 +81,12 @@
     @include m.label;
   }
   &__decrement-button {
-    @include m.circle-with-minus(30px)
+    @include m.circle-with-minus(30px);
+    background-color: #fff;
   }
   &__increment-button {
-    @include m.circle-with-plus(30px)
+    @include m.circle-with-plus(30px);
+    background-color: #fff;
   }
   &__clear, &__apply {
     @include m.label;

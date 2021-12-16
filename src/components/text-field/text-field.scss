@@ -21,6 +21,7 @@
     &_focused, &:hover, &:focus {
       color: v.$dark75;
       border-color: v.$dark50;
+      outline: none;
       &::placeholder {
         color: v.$dark50;
       }
