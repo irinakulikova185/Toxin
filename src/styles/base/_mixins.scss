@@ -35,14 +35,11 @@
   border: 1px solid v.$dark25;
   border-radius: 4px; 
 }
-
-// @mixin circle($width, $color) {
-//   width: $width;
-//   height: $width;
-//   border: 1px solid $color;
-//   // background: $color;
-//   border-radius: $width/2;
-// }
+@mixin focused-border {
+  color: v.$dark75;
+  border-color: v.$dark50;
+  outline: none;
+}
 @mixin circle-with-minus($width) {
   width: $width;
   height: $width;

@@ -10,9 +10,9 @@ mixin dropdown(params= {initial_value: "", items: [], visible: false, clearBtn: 
       each item in params.items
         li.dropdown__item
           span.dropdown__prop= item
-          .dropdown__controls
-            button.dropdown__decrement-button 
-            .dropdown__amount 0
+          .dropdown__controls 
+            button&attributes({class: "dropdown__decrement-button", disabled: ""}) 
+            div&attributes({class: "dropdown__amount", "data-property": `${item}`}) 0
             button.dropdown__increment-button
       li.dropdown__item_controlling
         span(class = clearBtnClassName) очистить

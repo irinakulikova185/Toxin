@@ -10,7 +10,7 @@
   &__input {
     @include m.border;
     width: 100%;
-    height: 44px;
+    height: v.$input-height;
     line-height: 18px;
     padding: 13px 91px 13px 15px;
     text-align: left;
@@ -19,9 +19,7 @@
       color: v.$dark25;
     }
     &_focused, &:hover, &:focus {
-      color: v.$dark75;
-      border-color: v.$dark50;
-      outline: none;
+      @include m.focused-border;
       &::placeholder {
         color: v.$dark50;
       }
