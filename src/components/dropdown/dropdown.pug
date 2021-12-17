@@ -1,20 +1,21 @@
-mixin dropdown(params= {initial_value: "", items: [], visible: false, clearBtn: false, controlBtns: false})
+mixin dropdown(params= {initial_value: "", items: [], visible: false, clearBtn: false, controlBtns: false, type: ""})
   -
+    const {initial_value, items, visible, clearBtn, controlBtns, type} = params
     let listClassName = "dropdown__list"
-    listClassName += params.visible ? " dropdown__list_visible" : ""
+    listClassName += visible ? " dropdown__list_visible" : ""
     let clearBtnClassName = "dropdown__clear"
-    clearBtnClassName +=params.clearBtn ? " dropdown__clear_visible" : ""
-  .dropdown
-    button.dropdown__button= params.initial_value
+    clearBtnClassName +=clearBtn ? " dropdown__clear_visible" : ""
+  div&attributes({class: "dropdown", "data-type" : type})
+    button&attributes({class: "dropdown__button", "data-placeholder": initial_value})= initial_value
     ul(class = listClassName)
-      each item in params.items
+      each item in items
         li.dropdown__item
           span.dropdown__prop= item
-          .dropdown__prop-counter 
+          .dropdown__counter 
             button&attributes({class: "dropdown__decrement-button", disabled: ""}) 
-            div&attributes({class: "dropdown__prop-count", "data-property": `${item}`}) 0
+            div&attributes({class: "dropdown__count", "data-property": `${item}`}) 0
             button.dropdown__increment-button
-      if params.controlBtns      
+      if controlBtns      
         li.dropdown__item_controlling
           span(class = clearBtnClassName) очистить
           span.dropdown__apply применить       

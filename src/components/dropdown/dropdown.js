@@ -1,15 +1,18 @@
 import './_dropdown.scss'
 
-document.querySelectorAll(".dropdown").forEach(dropdownWrapper => {
+document.querySelectorAll(".dropdown").forEach(wrapper => {
 
-  const decrementBtns = dropdownWrapper.querySelectorAll(".dropdown__decrement-button"),
-        incrementBtns = dropdownWrapper.querySelectorAll(".dropdown__increment-button"),
-        dropdownBtn = dropdownWrapper.querySelector(".dropdown__button"),
-        dropdownList = dropdownWrapper.querySelector(".dropdown__list"),
-        quantityBlocks = dropdownWrapper.querySelectorAll(".dropdown__prop-count"),
-        applyBtn = dropdownWrapper.querySelector(".dropdown__apply"),
-        clearBtn = dropdownWrapper.querySelector(".dropdown__clear");
+  const decrementBtns = wrapper.querySelectorAll(".dropdown__decrement-button"),
+        incrementBtns = wrapper.querySelectorAll(".dropdown__increment-button"),
+        dropdownBtn = wrapper.querySelector(".dropdown__button"),
+        dropdownList = wrapper.querySelector(".dropdown__list"),
+        quantityBlocks = wrapper.querySelectorAll(".dropdown__count"),
+        applyBtn = wrapper.querySelector(".dropdown__apply"),
+        clearBtn = wrapper.querySelector(".dropdown__clear");
   
+  const type = wrapper.getAttribute("data-type")
+  const placeholder = dropdownBtn.getAttribute("data-placeholder")
+
   dropdownBtn.addEventListener('click', () => {
     dropdownList.classList.toggle("dropdown__list_visible")
   })
@@ -20,13 +23,17 @@ document.querySelectorAll(".dropdown").forEach(dropdownWrapper => {
   }
   
   function isClearBtnHidden(value) {
-    return value>0 && !clearBtn.classList.contains("dropdown__clear_visible")
+    if(clearBtn) {
+      return value>0 && !clearBtn.classList.contains("dropdown__clear_visible")
+    }  
   }
   function getValuesArray() {
     return Array.from(quantityBlocks, block => +block.innerHTML)
   }
   function shouldClearBtnHidden(value) {
-    return value === 0  && getValuesArray().every(num => num === 0)
+    if(clearBtn) {
+      return value === 0  && getValuesArray().every(num => num === 0)
+    }
   }
   function toggleDisabledAttr(item, value) {
     const shouldDecrBtnDisabled = value === 0 && item.classList.contains("dropdown__decrement-button");
@@ -39,13 +46,13 @@ document.querySelectorAll(".dropdown").forEach(dropdownWrapper => {
     }
   }
   function setQuantityBlockValue(item,num) {
-    const quantityBlock = item.parentElement.querySelector(".dropdown__prop-count");
+    const quantityBlock = item.parentElement.querySelector(".dropdown__count");
     const currentValue = +quantityBlock.innerHTML;
     const newValue = currentValue + num;
     quantityBlock.innerHTML = newValue;
     return newValue
   }
-  function handleControlBtnClick(item, num) {
+  function handleCounterBtnClick(item, num) {
     const newValue = setQuantityBlockValue(item, num)
     toggleDisabledAttr(item, newValue);
     if(isClearBtnHidden(newValue)) {
@@ -56,42 +63,50 @@ document.querySelectorAll(".dropdown").forEach(dropdownWrapper => {
     }
   }
   function calcAmount(properties=[]) {
-    const itemsAmountArray = properties.map(prop => +dropdownWrapper.querySelector(`[data-property = ${prop}]`).innerHTML);
+    const itemsAmountArray = properties.map(prop => +wrapper.querySelector(`[data-property = ${prop}]`).innerHTML);
     return itemsAmountArray.reduce((prev,current) => prev + current)
   }
-  function createDropdownBtnText(guestsAmount, babiesAmount) {
-    let guests = "гостей"
-    if(guestsAmount === 1) {
-      guests = "гость"
-    } else if ( guestsAmount >= 2  && guestsAmount <= 4) {
-      guests = "гостя"
-    } 
-    let baby = "младенецев"
-    if(babiesAmount === 1) {
-      baby = "младенец"
-    } else if ( babiesAmount >= 2  && babiesAmount <= 4) {
-      baby = "младенца"
-    } 
-    let selectedOptionsText = `${guestsAmount} ${guests}, ${babiesAmount} ${baby}`
-    if(guestsAmount === 0) {selectedOptionsText = `${babiesAmount} ${baby}`}
-    if(babiesAmount === 0) {selectedOptionsText = `${guestsAmount} ${guests}`}
-    return selectedOptionsText
+  function declOfNum(n, text_forms) {  
+    n = Math.abs(n) % 100; 
+    var n1 = n % 10;
+    if (n > 10 && n < 20) { return `${n} ${text_forms[2]}`; }
+    if (n1 > 1 && n1 < 5) { return `${n} ${text_forms[1]}`; }
+    if (n1 == 1) { return `${n} ${text_forms[0]}`; }
+    return `${n} ${text_forms[2]}`;
   }
-  function setDropdownBtnValue() {
-    const totalBabies = calcAmount(["младенцы"])
-    const totalGuests = calcAmount(["взрослые", "дети"])
-    const selectedOptionsText = createDropdownBtnText(totalGuests, totalBabies)
-    const totalAmountZero = totalGuests === 0 && totalBabies === 0
-    dropdownBtn.innerHTML = totalAmountZero ? "Сколько гостей" : selectedOptionsText
+  function createDropdownBtnText(data) {
+    const selectedData = data.map(array =>  declOfNum(array[0], array[1]))
+    const filteredSelectedData = selectedData.filter(str => !str.startsWith(0))
+    const dropdownBtnText = filteredSelectedData.join(",")
+    return dropdownBtnText
+  }
+  function setDropdownBtnText() {
+    let dropdownBtnText
+    let total1
+    let total2
+    switch(type) {
+      case "guests" :
+        total2 = calcAmount(["младенцы"])
+        total1 = calcAmount(["взрослые", "дети"])
+        dropdownBtnText = createDropdownBtnText([[total1, ['гость', 'гостя', 'гостей']], [total2, ['младенец', 'младенца', 'младенцев']]])
+        break
+      case "rooms" :
+        total2 = calcAmount(["кровати"])
+        total1 = calcAmount(["спальни"])
+        dropdownBtnText = createDropdownBtnText([[total1, ['спальня', 'спальни', 'спален']], [total2, ['кровать', 'кровати', 'кроватей']]])
+        break  
+    }
+    const totalAmountZero = total1 === 0 && total2 === 0
+    dropdownBtn.innerHTML = totalAmountZero ? placeholder : dropdownBtnText
   }
   decrementBtns.forEach(btn => btn.addEventListener('click', () => {
-    handleControlBtnClick(btn, -1)
-    setDropdownBtnValue()
+    handleCounterBtnClick(btn, -1)
+    setDropdownBtnText()
   }))
 
   incrementBtns.forEach(btn => btn.addEventListener('click', () => {
-    handleControlBtnClick(btn, 1)
-    setDropdownBtnValue()
+    handleCounterBtnClick(btn, 1)
+    setDropdownBtnText()
   }))
 
   function handleClearBtnClick() {
@@ -112,7 +127,6 @@ document.querySelectorAll(".dropdown").forEach(dropdownWrapper => {
   })
 
   document.addEventListener('click', (e) => {
-    console.log(e.target)
     if(e.target !== dropdownBtn) {
       dropdownList.classList.remove("dropdown__list_visible")
     }

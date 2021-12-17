@@ -68,7 +68,7 @@
     @include m.label;
     padding-left: 15px;
   }
-  &__prop-counter {
+  &__counter {
     padding-right: 6px;
     display: flex;
     justify-content: space-between;
@@ -77,7 +77,7 @@
     max-width: 98px;
     // min-width: 92px;
   }
-  &__prop-count {
+  &__count {
     @include m.label;
   }
   &__decrement-button {
