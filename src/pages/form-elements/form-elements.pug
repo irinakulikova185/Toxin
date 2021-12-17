@@ -21,10 +21,13 @@ block content
       +text-field({type: "text",name: "data", placeholder: "ДД.ММ.ГГГГ", masked: true})    
     .element__wrapper 
       +heading({title: "dropdown"})
-      +dropdown({initial_value: "Сколько гостей", items: ["взрослые", "дети", "младенцы"]})
+      +dropdown({type: "withApplyBtn", initial_value: "Сколько гостей", items: ["взрослые", "дети", "младенцы"]})
     .element__wrapper 
       +heading({title: "masked text field"})
-      +text-field({type: "text",name: "data", placeholder: "ДД.ММ.ГГГГ", masked: true})  
+      +text-field({type: "text",name: "data", placeholder: "ДД.ММ.ГГГГ", masked: true})
+    .element__wrapper 
+      +heading({title: "dropdown"})
+      +dropdown({initial_value: "2 спальни, 2 кровати", items: ["спальни", "кровати", "ванные комнаты"]})    
   
   
     

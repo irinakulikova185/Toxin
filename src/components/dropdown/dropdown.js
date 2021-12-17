@@ -9,35 +9,14 @@ document.querySelectorAll(".dropdown").forEach(dropdownWrapper => {
         quantityBlocks = dropdownWrapper.querySelectorAll(".dropdown__amount"),
         applyBtn = dropdownWrapper.querySelector(".dropdown__apply"),
         clearBtn = dropdownWrapper.querySelector(".dropdown__clear");
- 
+  console.log(applyBtn)
   dropdownBtn.addEventListener('click', () => {
     dropdownList.classList.toggle("dropdown__list_visible")
   })
-  function calcAmount(properties=[]) {
-    const itemsAmountArray = properties.map(prop => +dropdownWrapper.querySelector(`[data-property = ${prop}]`).innerHTML);
-    return itemsAmountArray.reduce((prev,current) => prev + current)
-  }
-  function setDropdownBtnValue() {
-    const totalBabies = calcAmount(["младенцы"])
-    const totalGuests = calcAmount(["взрослые", "дети"])
-    let guests = "гостей"
-    if(totalGuests === 1) {
-      guests = "гость"
-    } else if ( totalGuests >= 2  && totalGuests <= 4) {
-      guests = "гостя"
-    } 
-    let baby = "младенецев"
-    if(totalBabies === 1) {
-      baby = "младенец"
-    } else if ( totalBabies >= 2  && totalBabies <= 4) {
-      baby = "младенца"
-    } 
-    const totalAmountZero = totalGuests === 0 && totalBabies === 0
-    dropdownBtn.innerHTML = totalAmountZero ? "Сколько гостей" : `${totalGuests} ${guests}, ${totalBabies} ${baby}`
-  }
   applyBtn.addEventListener('click', () => {
     dropdownList.classList.remove("dropdown__list_visible")
   })
+  
   function isClearBtnHidden(value) {
     return value>0 && !clearBtn.classList.contains("dropdown__clear_visible")
   }
@@ -57,7 +36,7 @@ document.querySelectorAll(".dropdown").forEach(dropdownWrapper => {
       item.parentElement.querySelector(".dropdown__decrement-button").removeAttribute("disabled")
     }
   }
-  function setValue(item,num) {
+  function setQuantityBlockValue(item,num) {
     const quantityBlock = item.parentElement.querySelector(".dropdown__amount");
     const currentValue = +quantityBlock.innerHTML;
     const newValue = currentValue + num;
@@ -65,7 +44,7 @@ document.querySelectorAll(".dropdown").forEach(dropdownWrapper => {
     return newValue
   }
   function handleControlBtnClick(item, num) {
-    const newValue = setValue(item, num)
+    const newValue = setQuantityBlockValue(item, num)
     toggleDisabledAttr(item, newValue);
     if(isClearBtnHidden(newValue)) {
       clearBtn.classList.add("dropdown__clear_visible")
@@ -74,7 +53,35 @@ document.querySelectorAll(".dropdown").forEach(dropdownWrapper => {
       clearBtn.classList.remove("dropdown__clear_visible")
     }
   }
-
+  function calcAmount(properties=[]) {
+    const itemsAmountArray = properties.map(prop => +dropdownWrapper.querySelector(`[data-property = ${prop}]`).innerHTML);
+    return itemsAmountArray.reduce((prev,current) => prev + current)
+  }
+  function createDropdownBtnText(guestsAmount, babiesAmount) {
+    let guests = "гостей"
+    if(guestsAmount === 1) {
+      guests = "гость"
+    } else if ( guestsAmount >= 2  && guestsAmount <= 4) {
+      guests = "гостя"
+    } 
+    let baby = "младенецев"
+    if(babiesAmount === 1) {
+      baby = "младенец"
+    } else if ( babiesAmount >= 2  && babiesAmount <= 4) {
+      baby = "младенца"
+    } 
+    let selectedOptionsText = `${guestsAmount} ${guests}, ${babiesAmount} ${baby}`
+    if(guestsAmount === 0) {selectedOptionsText = `${babiesAmount} ${baby}`}
+    if(babiesAmount === 0) {selectedOptionsText = `${guestsAmount} ${guests}`}
+    return selectedOptionsText
+  }
+  function setDropdownBtnValue() {
+    const totalBabies = calcAmount(["младенцы"])
+    const totalGuests = calcAmount(["взрослые", "дети"])
+    const selectedOptionsText = createDropdownBtnText(totalGuests, totalBabies)
+    const totalAmountZero = totalGuests === 0 && totalBabies === 0
+    dropdownBtn.innerHTML = totalAmountZero ? "Сколько гостей" : selectedOptionsText
+  }
   decrementBtns.forEach(btn => btn.addEventListener('click', () => {
     handleControlBtnClick(btn, -1)
     setDropdownBtnValue()
