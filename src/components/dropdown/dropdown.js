@@ -6,16 +6,18 @@ document.querySelectorAll(".dropdown").forEach(dropdownWrapper => {
         incrementBtns = dropdownWrapper.querySelectorAll(".dropdown__increment-button"),
         dropdownBtn = dropdownWrapper.querySelector(".dropdown__button"),
         dropdownList = dropdownWrapper.querySelector(".dropdown__list"),
-        quantityBlocks = dropdownWrapper.querySelectorAll(".dropdown__amount"),
+        quantityBlocks = dropdownWrapper.querySelectorAll(".dropdown__prop-count"),
         applyBtn = dropdownWrapper.querySelector(".dropdown__apply"),
         clearBtn = dropdownWrapper.querySelector(".dropdown__clear");
-  console.log(applyBtn)
+  
   dropdownBtn.addEventListener('click', () => {
     dropdownList.classList.toggle("dropdown__list_visible")
   })
-  applyBtn.addEventListener('click', () => {
-    dropdownList.classList.remove("dropdown__list_visible")
-  })
+  if(applyBtn) {
+    applyBtn.addEventListener('click', () => {
+      dropdownList.classList.remove("dropdown__list_visible")
+    })
+  }
   
   function isClearBtnHidden(value) {
     return value>0 && !clearBtn.classList.contains("dropdown__clear_visible")
@@ -37,7 +39,7 @@ document.querySelectorAll(".dropdown").forEach(dropdownWrapper => {
     }
   }
   function setQuantityBlockValue(item,num) {
-    const quantityBlock = item.parentElement.querySelector(".dropdown__amount");
+    const quantityBlock = item.parentElement.querySelector(".dropdown__prop-count");
     const currentValue = +quantityBlock.innerHTML;
     const newValue = currentValue + num;
     quantityBlock.innerHTML = newValue;
@@ -99,9 +101,11 @@ document.querySelectorAll(".dropdown").forEach(dropdownWrapper => {
     decrementBtns.forEach(btn => btn.setAttribute("disabled", ""))
   }
 
-  clearBtn.addEventListener('click', () => {
-    handleClearBtnClick()
-  })
+  if(clearBtn) {
+    clearBtn.addEventListener('click', () => {
+      handleClearBtnClick()
+    })
+  }
 
   dropdownList.addEventListener('click', (e) => {
     e.stopPropagation()
