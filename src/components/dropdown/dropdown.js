@@ -12,9 +12,10 @@ document.querySelectorAll(".dropdown").forEach(wrapper => {
   
   const type = wrapper.getAttribute("data-type")
   const placeholder = dropdownBtn.getAttribute("data-placeholder")
-
+  
   dropdownBtn.addEventListener('click', () => {
     dropdownList.classList.toggle("dropdown__list_visible")
+
   })
   if(applyBtn) {
     applyBtn.addEventListener('click', () => {
@@ -35,9 +36,10 @@ document.querySelectorAll(".dropdown").forEach(wrapper => {
       return value === 0  && getValuesArray().every(num => num === 0)
     }
   }
-  function toggleDisabledAttr(item, value) {
-    const shouldDecrBtnDisabled = value === 0 && item.classList.contains("dropdown__decrement-button");
-    if(shouldDecrBtnDisabled) {
+  function toggleDisabledAttr(item) {
+    const count = +item.parentElement.querySelector(".dropdown__count").innerHTML
+    const shouldBtnDisabled = count === 0 && item.classList.contains("dropdown__decrement-button");
+    if(shouldBtnDisabled) {
       item.setAttribute("disabled","")
     } else if (item.classList.contains("dropdown__decrement-button")) {
       item.removeAttribute("disabled");
@@ -54,7 +56,7 @@ document.querySelectorAll(".dropdown").forEach(wrapper => {
   }
   function handleCounterBtnClick(item, num) {
     const newValue = setQuantityBlockValue(item, num)
-    toggleDisabledAttr(item, newValue);
+    toggleDisabledAttr(item);
     if(isClearBtnHidden(newValue)) {
       clearBtn.classList.add("dropdown__clear_visible")
     }
@@ -86,13 +88,13 @@ document.querySelectorAll(".dropdown").forEach(wrapper => {
     let total2
     switch(type) {
       case "guests" :
-        total2 = calcAmount(["младенцы"])
         total1 = calcAmount(["взрослые", "дети"])
+        total2 = calcAmount(["младенцы"])
         dropdownBtnText = createDropdownBtnText([[total1, ['гость', 'гостя', 'гостей']], [total2, ['младенец', 'младенца', 'младенцев']]])
         break
       case "rooms" :
-        total2 = calcAmount(["кровати"])
         total1 = calcAmount(["спальни"])
+        total2 = calcAmount(["кровати"])
         dropdownBtnText = createDropdownBtnText([[total1, ['спальня', 'спальни', 'спален']], [total2, ['кровать', 'кровати', 'кроватей']]])
         break  
     }
@@ -131,5 +133,22 @@ document.querySelectorAll(".dropdown").forEach(wrapper => {
       dropdownList.classList.remove("dropdown__list_visible")
     }
   })
+
+  function setDefaultCount(attrValue, amount) {
+    quantityBlocks.forEach(block => {
+      const attr = block.getAttribute("data-property")
+      if(attr === attrValue) {
+        block.innerHTML = amount
+      }
+    })
+  }
+
+  function init() {
+    setDefaultCount("спальни", 2)
+    setDefaultCount("кровати", 2)
+    setDropdownBtnText()
+    decrementBtns.forEach(btn => toggleDisabledAttr(btn))
+  }
+  init();
 })
 
