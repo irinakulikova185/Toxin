@@ -1,6 +1,21 @@
-mixin heading(params= {title: "", prop: ""})
-  .heading 
-    span.heading__title= params.title
+mixin heading(params= {title: "", prop: "", size: ""})
+  -
+    const {title, prop, size} = params
+    let headingClassName = "heading"
+    switch(size){
+      case "large":
+        headingClassName += " heading_large";
+        break;
+      case "medium":
+        headingClassName += " heading_medium";
+        break;
+      case "small":
+        headingClassName += " heading_small";
+        break;
+    }
+
+  div(class = headingClassName) 
+    span.heading__title= title
     if (params.prop)
-      span.heading__prop= params.prop
+      span.heading__prop= prop
     

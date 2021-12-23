@@ -1,19 +1,28 @@
-mixin dropdown(params= {initial_value: "", items: [], visible: false, clearBtn: false, controlBtns: false, type: ""})
+mixin dropdown(params= {initial_value: "", items: [], visible: false, clearBtn: false, controlBtns: false, type: "", size: "large"})
   -
-    const {initial_value, items, visible, clearBtn, controlBtns, type} = params
+    const {initial_value, items, visible, clearBtn, controlBtns, type, size} = params
     let listClassName = "dropdown__list"
     listClassName += visible ? " dropdown__list_visible" : ""
     let clearBtnClassName = "dropdown__clear"
     clearBtnClassName +=clearBtn ? " dropdown__clear_visible" : ""
-  div&attributes({class: "dropdown", "data-type" : type})
+    let dropdownClassName = "dropdown"
+    switch(size){
+      case "large":
+        dropdownClassName += " dropdown_large";
+        break;
+      case "medium":
+        dropdownClassName += " dropdown_medium";
+    }
+
+  div&attributes({class: dropdownClassName, "data-type" : type})
     button&attributes({class: "dropdown__button", "data-placeholder": initial_value})= initial_value
     ul(class = listClassName)
       each item in items
         li.dropdown__item
-          span.dropdown__prop= item
+          span.dropdown__prop= item.prop
           .dropdown__counter 
             button&attributes({class: "dropdown__decrement-button", disabled: ""}) 
-            div&attributes({class: "dropdown__count", "data-property": `${item}`}) 0
+            div&attributes({class: "dropdown__count", "data-property": `${item.prop}`})= item.amount
             button.dropdown__increment-button
       if controlBtns      
         li.dropdown__item_controlling

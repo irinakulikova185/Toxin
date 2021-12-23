@@ -2,6 +2,7 @@ extends ../../pug/templates/base
 include ../../components/text-field/text-field
 include ../../components/heading/heading
 include ../../components/dropdown/dropdown
+include ../../components/date-dropdown/date-dropdown
 
 block variables
   - let title = "Form Elements"
@@ -11,23 +12,64 @@ block variables
 block content
   .form-elements__wrapper
     .element__wrapper 
-      +heading({title: "text field", prop: "default"})
-      +text-field({type: "email",name: "email", placeholder: "Email"})
+      +heading({
+        title: "text field", 
+        prop: "default",
+        size: "large",
+      })
+      +text-field({
+        type: "email",
+        name: "email", 
+        placeholder: "Email"
+      })
     .element__wrapper 
-      +heading({title: "text field", prop: "hover / focus"})
-      +text-field({type: "text",name: "email", placeholder: "This is pretty awesome", focused: "true"})
+      +heading({
+        title: "text field", 
+        prop: "hover / focus",
+        size: "large",
+      })
+      +text-field({
+        type: "text",
+        name: "email", 
+        placeholder: "This is pretty awesome", 
+        focused: "true"
+      })
     .element__wrapper 
-      +heading({title: "masked text field"})
-      +text-field({type: "text",name: "data", placeholder: "ДД.ММ.ГГГГ", masked: true})    
+      +heading({title: "masked text field", size: "large",})
+      +text-field({
+        type: "text",
+        name: "data", 
+        placeholder: "ДД.ММ.ГГГГ", 
+        masked: true
+      })
     .element__wrapper 
-      +heading({title: "dropdown"})
-      +dropdown({initial_value: "Сколько гостей", items: ["взрослые", "дети", "младенцы"], controlBtns: true, type: "guests"})
+      +heading({title: "date Dropdown", size: "small"})
+      +date-dropdown({size: "small", placeholder: "дд.мм.гггг" })
     .element__wrapper 
-      +heading({title: "masked text field"})
-      +text-field({type: "text",name: "data", placeholder: "ДД.ММ.ГГГГ", masked: true})
+      +heading({title: "dropdown", size: "large",})
+      +dropdown({
+        initial_value: "Сколько гостей", 
+        items: [{prop: "взрослые", amount: 0}, {prop: "дети", amount: 0}, {prop: "младенцы", amount: 0}], 
+        controlBtns: true, 
+        type: "guests",
+        size: "large",
+      })
     .element__wrapper 
-      +heading({title: "dropdown"})
-      +dropdown({initial_value: "удобства в номере", items: ["спальни", "кровати", "ванные комнаты"], type: "rooms"})    
+      +heading({title: "masked text field", size: "large",})
+      +text-field({
+        type: "text",
+        name: "data", 
+        placeholder: "ДД.ММ.ГГГГ", 
+        masked: true
+      })
+    .element__wrapper 
+      +heading({title: "dropdown", size: "medium",})
+      +dropdown({
+        initial_value: "Удобства номера", 
+        items: [{prop: "спальни", amount: 2}, {prop: "кровати", amount: 2}, {prop: "ванные комнаты", amount: 0}], 
+        type: "rooms",
+        size: "medium",
+      })    
   
   
     

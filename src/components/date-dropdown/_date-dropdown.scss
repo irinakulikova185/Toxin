@@ -1,0 +1,33 @@
+@use '../../styles/base/mixins' as m;
+@use '../../styles/base/variables' as v;
+
+
+
+.date-dropdown {
+  width: 100%;
+  position: relative;
+  &_large {
+    @include m.max-width-l;
+  }
+  &_medium {
+    @include m.max-width-m;
+  }
+  &_small {
+    @include m.max-width-s;
+  }
+  &__input {
+    @include m.border;
+    @include m.regular;
+    width: 100%;
+    height: v.$input-height;
+    line-height: 18px;
+    padding-left: 14px;
+    text-align: left;
+    cursor: pointer;
+    text-transform: uppercase;
+    background: url(../../images/icons/arrow-down.png) no-repeat 90% 50%;
+    &:hover, &:focus {
+      @include m.focused-border;
+    }
+    }
+  }

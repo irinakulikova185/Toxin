@@ -4,7 +4,15 @@
 .dropdown {
   position: relative;
   width: 100%;
-  // z-index: 2;
+  &_large {
+    @include m.max-width-l;
+  }
+  &_medium {
+    @include m.max-width-m;
+  }
+  &_small {
+    @include m.max-width-s;
+  }
   &__button {
     @include m.regular;
     position: relative;
@@ -14,24 +22,14 @@
     border-radius: 4px 4px 0 0;
     border: 1px solid v.$dark25;
     padding-left: 13px;
-    padding-right: 91px;
+    padding-right: 82px;
     text-align: left;
     cursor: pointer;
     &:hover, &:focus {
       @include m.focused-border;
     } 
     &::after {
-      content: '';
-      border: solid v.$dark50;
-      border-width: 0 2px 2px 0;
-      display: inline-block;
-      padding: 3px;
-      // transform: translate(2100%, -30%)  rotate(45deg);
-      transform: rotate(45deg);
-      position: absolute;
-      right: 5%;
-      bottom: 19px;
-      pointer-events: none;
+      @include m.arrow-down;
     }
   }
   &__list {

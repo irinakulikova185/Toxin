@@ -1,0 +1,17 @@
+mixin date-dropdown(params = {size: "", placeholder: ""})
+  -
+    const {size, placeholder} = params
+    let dropdownClassName = "date-dropdown"
+    switch(size){
+      case "small":
+        dropdownClassName += " date-dropdown_small";
+        break;
+      case "medium":
+        dropdownClassName += " date-dropdown_medium";
+        break;
+      case "large":
+        dropdownClassName += " date-dropdown_large";
+        break;  
+    }
+  div(class = dropdownClassName)
+    input&attributes({class: "date-dropdown__input", type: "text", id: "datapicker", placeholder})

@@ -4,6 +4,15 @@
 .heading {
   display: flex;
   justify-content: space-between;
+  &_large {
+    @include m.max-width-l;
+  }
+  &_medium {
+    @include m.max-width-m;
+  }
+  &_small {
+    @include m.max-width-s;
+  }
   &__title {
     @include m.label;
   }

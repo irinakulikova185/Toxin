@@ -95,7 +95,7 @@ document.querySelectorAll(".dropdown").forEach(wrapper => {
       case "rooms" :
         total1 = calcAmount(["спальни"])
         total2 = calcAmount(["кровати"])
-        dropdownBtnText = createDropdownBtnText([[total1, ['спальня', 'спальни', 'спален']], [total2, ['кровать', 'кровати', 'кроватей']]])
+        dropdownBtnText = createDropdownBtnText([[total1, ['спальня', 'спальни', 'спален']], [total2, ['кровать', 'кровати', 'кроватей']]]) +"..."
         break  
     }
     const totalAmountZero = total1 === 0 && total2 === 0
@@ -134,18 +134,7 @@ document.querySelectorAll(".dropdown").forEach(wrapper => {
     }
   })
 
-  function setDefaultCount(attrValue, amount) {
-    quantityBlocks.forEach(block => {
-      const attr = block.getAttribute("data-property")
-      if(attr === attrValue) {
-        block.innerHTML = amount
-      }
-    })
-  }
-
   function init() {
-    setDefaultCount("спальни", 2)
-    setDefaultCount("кровати", 2)
     setDropdownBtnText()
     decrementBtns.forEach(btn => toggleDisabledAttr(btn))
   }
