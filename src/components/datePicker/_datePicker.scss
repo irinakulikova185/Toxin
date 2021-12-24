@@ -1,0 +1,112 @@
+@use '../../styles/base/mixins' as m;
+@use '../../styles/base/variables' as v;
+
+
+
+// .date-dropdown {
+//   width: 100%;
+//   position: relative;
+//   &_large {
+//     @include m.max-width-l;
+//   }
+//   &_medium {
+//     @include m.max-width-m;
+//   }
+//   &_small {
+//     @include m.max-width-s;
+//   }
+//   &__input {
+//     @include m.border;
+//     @include m.regular;
+//     width: 100%;
+//     height: v.$input-height;
+//     line-height: 18px;
+//     padding-left: 14px;
+//     text-align: left;
+//     cursor: pointer;
+//     text-transform: uppercase;
+//     background: url(../../images/icons/arrow-down.png) no-repeat 90% 50%;
+//     &:hover, &:focus {
+//       @include m.focused-border;
+//     }
+//     }
+//   }
+.air-datepicker {
+  @include m.border;
+  box-sizing:border-box;
+  width: 320px;
+  &--content {
+    padding-left: 19px;
+  }
+  &-nav {
+    border-bottom: none;
+    padding-top: 13px;
+    padding-left: 15px;
+    padding-right: 15px;
+    height: 24px;
+    margin-bottom: 9px;
+    &--title {
+      @include m.subtitle
+    }
+  }
+  &--pointer {
+    &:after {
+      width: 0;
+      height: 0;
+    }
+  }
+  &-nav--action svg path{
+    opacity: 0;
+  }
+  &-body {
+
+    &--day-names{
+      grid-template-columns: repeat(7, 40px);
+      grid-auto-rows: 40px;
+      margin-bottom: 0px;
+    }
+    &--day-name {
+      @include m.label;
+      text-transform: capitalize;
+      color: v.$purple;
+    }
+    &--cells.-days-{
+      grid-template-columns: repeat(7, 40px);
+      grid-auto-rows: 40px;
+    }
+  }
+  &-cell.-day- {
+    font-weight: 400;
+    font-size: 12px;
+    color: v.$dark50;
+    &.-other-month- {
+      color: v.$dark25;
+    }
+    &.-current-.-selected-{
+      background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+      border-radius: 100px;
+    }
+  }
+  &--buttons {
+    border-top: none;
+    width: 100%;
+    max-width: 280px;
+    padding-left: 19px;
+    box-sizing:content-box;
+  }
+  &-buttons {
+    grid-auto-columns: max-content;
+    column-gap: 42%;
+    margin-bottom: 11px;
+  }
+  &-button span{
+    @include m.label;
+    color: v.$purple;
+  }
+}
+[data-action="prev"] {
+  background: url(../../images/icons/arrow_back.svg) no-repeat center center;
+}
+[data-action="next"] {
+  background: url(../../images/icons/arrow_forward.svg) no-repeat center center;
+}

@@ -2,7 +2,7 @@ extends ../../pug/templates/base
 include ../../components/text-field/text-field
 include ../../components/heading/heading
 include ../../components/dropdown/dropdown
-include ../../components/date-dropdown/date-dropdown
+
 
 block variables
   - let title = "Form Elements"
@@ -44,7 +44,22 @@ block content
       })
     .element__wrapper 
       +heading({title: "date Dropdown", size: "small"})
-      +date-dropdown({size: "small", placeholder: "дд.мм.гггг" })
+      +text-field({
+        type: "text",
+        name: "data", 
+        placeholder: "ДД.ММ.ГГГГ", 
+        withDatePicker: true,
+        size: "small"
+        })
+    //- .element__wrapper 
+    //-   +heading({title: "date Dropdown", size: "small"})
+    //-   +text-field({
+    //-     type: "text",
+    //-     name: "data", 
+    //-     placeholder: "ДД.ММ.ГГГГ", 
+    //-     withDropdown: true,
+    //-     size: "small"
+    //-     })    
     .element__wrapper 
       +heading({title: "dropdown", size: "large",})
       +dropdown({

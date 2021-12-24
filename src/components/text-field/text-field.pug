@@ -1,9 +1,21 @@
-mixin text-field(params = {type: "", name: "", placeholder: "", focused: false, masked: false})
+mixin text-field(params = {type: "", name: "", placeholder: "", focused: false, masked: false, withDatePicker: false, size: "large"})
   -
-    const {type, name, placeholder, focused, masked} = params
+    const {type, name, placeholder, focused, masked, withDatePicker, size} = params
     let inputClassName = "text-field__input"
     inputClassName += focused ? " text-field__input_focused" : ""
     inputClassName += masked ? " text-field__input_masked" : ""
+    inputClassName += withDatePicker ? " text-field__input_withDP" : ""
+    switch(size){
+      case "small":
+        inputClassName += " text-field__input_small";
+        break;
+      case "medium":
+        inputClassName += " text-field__input_medium";
+        break;
+      case "large":
+        inputClassName += " text-field__input_large";
+        break;  
+    }
   form.text-field
     input&attributes({class: inputClassName, type, name, placeholder})
     

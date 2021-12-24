@@ -10,7 +10,7 @@
     width: 100%;
     height: v.$input-height;
     line-height: 18px;
-    padding: 13px 91px 13px 15px;
+    padding: 13px 43px 13px 15px;
     text-align: left;
     cursor: pointer;
     &::placeholder {
@@ -21,6 +21,21 @@
       &::placeholder {
         color: v.$dark50;
       }
+    }
+    &_withDP {
+      background: url(../../images/icons/arrow-down.png) no-repeat 90% 50%;
+      &::placeholder {
+        color: v.$dark75;
+      }
+    }
+    &_large {
+      @include m.max-width-l;
+    }
+    &_medium {
+      @include m.max-width-m;
+    }
+    &_small {
+      @include m.max-width-s;
     }
   }
 }
